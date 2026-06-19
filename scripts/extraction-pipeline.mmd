@@ -1,0 +1,17 @@
+%% Extraction pipeline for @liiift-studio/sanity-font-data-extractor
+%% Rendered to assets/extraction-pipeline.svg by `npm run capture`.
+flowchart LR
+    A["Font file<br/>.otf / .ttf / .woff / .woff2"] -->|click or drag &amp; drop| B["GetFontData<br/>(Sanity Studio component)"]
+    B -->|FileReader -&gt; Uint8Array| C["fontkit.create()"]
+    C --> D["Parsed font object"]
+    D --> E["Summary cards<br/>family - style - glyphs - version"]
+    D --> F["ObjectInspector tree<br/>fvar axes - name table - metrics"]
+    D --> G["Copy metadata<br/>(JSON to clipboard)"]
+    D -.->|2+ fonts uploaded| H["Compare view<br/>side-by-side metrics table"]
+
+    classDef input fill:#1f6feb,stroke:#1158c7,color:#fff;
+    classDef core fill:#0d1117,stroke:#30363d,color:#e6edf3;
+    classDef out fill:#238636,stroke:#196c2e,color:#fff;
+    class A input;
+    class B,C,D core;
+    class E,F,G,H out;
