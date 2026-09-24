@@ -2,9 +2,9 @@
 
 Inspect OpenType metadata, variable-font axes, and font metrics directly inside Sanity Studio — drag in one or more `.otf` / `.ttf` / `.woff` / `.woff2` files and read their internals without leaving the CMS.
 
-[![npm](https://img.shields.io/npm/v/@liiift-studio/sanity-font-data-extractor.svg)](https://www.npmjs.com/package/@liiift-studio/sanity-font-data-extractor)
+[![npm](https://img.shields.io/npm/v/@overpunch/sanity-font-data-extractor.svg)](https://www.npmjs.com/package/@overpunch/sanity-font-data-extractor)
 [![Sanity Studio v3–v6](https://img.shields.io/badge/Sanity%20Studio-v3%20%C2%B7%20v4%20%C2%B7%20v5%20%C2%B7%20v6-f03e2f)](#compatibility)
-[![license](https://img.shields.io/npm/l/@liiift-studio/sanity-font-data-extractor.svg)](https://www.npmjs.com/package/@liiift-studio/sanity-font-data-extractor)
+[![license](https://img.shields.io/npm/l/@overpunch/sanity-font-data-extractor.svg)](https://www.npmjs.com/package/@overpunch/sanity-font-data-extractor)
 
 A client-side React component for Sanity Studio (v3 through v6). Upload font files and the component parses them in the browser with [`fontkit`](https://github.com/foliojs/fontkit), then surfaces the family/style/version, glyph count, metrics (units-per-em, ascent, descent, line gap), and the full parsed font object — including variable-font `fvar` axes and the `name` table — in an expandable inspector. Upload two or more fonts to compare their metrics side by side.
 
@@ -17,7 +17,7 @@ A client-side React component for Sanity Studio (v3 through v6). Upload font fil
 ## Install
 
 ```bash
-npm install @liiift-studio/sanity-font-data-extractor
+npm install @overpunch/sanity-font-data-extractor
 ```
 
 Install the peer dependencies if your Studio does not already provide them:
@@ -34,7 +34,7 @@ npm install sanity @sanity/ui @sanity/icons react fontkit
 | `react` | `^18 \|\| ^19` | |
 | `fontkit` | `^2` | **optional** peer (`peerDependenciesMeta`) — required at runtime to parse fonts |
 
-`@devtools-ds/object-inspector` (the metadata tree view) and `@liiift-studio/sanity-ui-compat` (see [Compatibility](#compatibility)) ship as direct dependencies, so you do not install them yourself.
+`@devtools-ds/object-inspector` (the metadata tree view) and `@overpunch/sanity-ui-compat` (see [Compatibility](#compatibility)) ship as direct dependencies, so you do not install them yourself.
 
 ## Compatibility
 
@@ -44,12 +44,12 @@ This one build runs on four consecutive Studio majors. The peer ranges above loo
 
 The trap: **both packages still *declare* the removed names in their `.d.ts`, typed `never`.** A named import therefore type-checks, compiles green, and only then fails at runtime as an undefined component. `tsc` cannot see the breakage, so a passing build proves nothing here.
 
-This package therefore imports **no `@sanity/ui` or `@sanity/icons` symbol directly**. Every primitive (`Card`, `Stack`, `Grid`, `usePrefersDark`, …) and every icon (`UploadIcon`, `TrashIcon`, `CopyIcon`, …) routes through [`@liiift-studio/sanity-ui-compat`](https://www.npmjs.com/package/@liiift-studio/sanity-ui-compat) and its `/icons` subpath, which resolve whichever namespace is actually installed at runtime and degrade gracefully when a symbol is absent:
+This package therefore imports **no `@sanity/ui` or `@sanity/icons` symbol directly**. Every primitive (`Card`, `Stack`, `Grid`, `usePrefersDark`, …) and every icon (`UploadIcon`, `TrashIcon`, `CopyIcon`, …) routes through [`@overpunch/sanity-ui-compat`](https://www.npmjs.com/package/@overpunch/sanity-ui-compat) and its `/icons` subpath, which resolve whichever namespace is actually installed at runtime and degrade gracefully when a symbol is absent:
 
 ```jsx
 // src/GetFontData.jsx — no direct @sanity/ui or @sanity/icons import anywhere
-import { Stack, Card, Grid, Heading, Text, Button, Badge, Flex, Box, usePrefersDark } from '@liiift-studio/sanity-ui-compat'
-import { TrashIcon, UploadIcon, CopyIcon, CheckmarkIcon, CloseIcon } from '@liiift-studio/sanity-ui-compat/icons'
+import { Stack, Card, Grid, Heading, Text, Button, Badge, Flex, Box, usePrefersDark } from '@overpunch/sanity-ui-compat'
+import { TrashIcon, UploadIcon, CopyIcon, CheckmarkIcon, CloseIcon } from '@overpunch/sanity-ui-compat/icons'
 ```
 
 Note the `@sanity/ui` peer of `>=2 <5`: **Studio v6 ships `@sanity/ui` v4**, not v5, so excluding v5 is correct rather than a stale upper bound.
@@ -61,7 +61,7 @@ Note the `@sanity/ui` peer of `>=2 <5`: **Studio v6 ships `@sanity/ui` v4**, not
 The package's default export is the `GetFontData` component. Mount it anywhere in your Studio — most commonly as a custom [Structure tool](https://www.sanity.io/docs/structure-builder-reference) or a desk view:
 
 ```jsx
-import GetFontData from '@liiift-studio/sanity-font-data-extractor'
+import GetFontData from '@overpunch/sanity-font-data-extractor'
 import { useClient } from 'sanity'
 import { SearchIcon } from '@sanity/icons'
 
