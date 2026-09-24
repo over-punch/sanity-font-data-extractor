@@ -1,5 +1,5 @@
 {
-  "name": "@liiift-studio/sanity-font-data-extractor",
+  "name": "@overpunch/sanity-font-data-extractor",
   "version": "2.1.1",
   "description": "Font analysis utility for Sanity Studio — inspect OpenType metadata, variable font axes, and compare multiple fonts side by side",
   "main": "dist/index.js",
@@ -12,7 +12,7 @@
     "src"
   ],
   "scripts": {
-    "build": "esbuild src/index.jsx --bundle=true --format=esm --jsx=automatic --external:react --external:react-dom --external:sanity --external:@sanity/* --external:@liiift-studio/* --external:@devtools-ds/* --external:fontkit --outfile=dist/index.js",
+    "build": "esbuild src/index.jsx --bundle=true --format=esm --jsx=automatic --external:react --external:react-dom --external:sanity --external:@sanity/* --external:@overpunch/* --external:@devtools-ds/* --external:fontkit --outfile=dist/index.js",
     "capture": "node scripts/capture.mjs",
     "prepublishOnly": "npm run build"
   },
@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "@devtools-ds/object-inspector": "^1.2.1",
-    "@liiift-studio/sanity-ui-compat": "^0.1.2"
+    "@overpunch/sanity-ui-compat": "^0.1.2"
   },
   "devDependencies": {
     "@sanity/icons": "^5.2.1",

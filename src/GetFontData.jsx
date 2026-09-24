@@ -1,6 +1,6 @@
 // Component for analyzing and displaying technical details of font files
-import { Stack, Card, Grid, Heading, Text, Button, Badge, Flex, Box, usePrefersDark } from '@liiift-studio/sanity-ui-compat'
-import { TrashIcon, UploadIcon, CopyIcon, CheckmarkIcon, CloseIcon } from '@liiift-studio/sanity-ui-compat/icons'
+import { Stack, Card, Grid, Heading, Text, Button, Badge, Flex, Box, usePrefersDark } from '@overpunch/sanity-ui-compat'
+import { TrashIcon, UploadIcon, CopyIcon, CheckmarkIcon, CloseIcon } from '@overpunch/sanity-ui-compat/icons'
 import { useState } from 'react'
 import { ObjectInspector } from "@devtools-ds/object-inspector"
 import * as fontkit from 'fontkit'

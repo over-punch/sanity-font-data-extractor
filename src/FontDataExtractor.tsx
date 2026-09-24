@@ -14,8 +14,8 @@ import {
   Badge,
   Spinner,
   Code
-} from '@liiift-studio/sanity-ui-compat'
-import { DownloadIcon, SearchIcon, DocumentTextIcon } from '@liiift-studio/sanity-ui-compat/icons'
+} from '@overpunch/sanity-ui-compat'
+import { DownloadIcon, SearchIcon, DocumentTextIcon } from '@overpunch/sanity-ui-compat/icons'
 import { SanityClient } from 'sanity'
 
 export interface FontDataExtractorProps {
