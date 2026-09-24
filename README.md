@@ -12,7 +12,7 @@ A client-side React component for Sanity Studio (v3 through v6). Upload font fil
 
 ## How it works
 
-<img src="https://raw.githubusercontent.com/Liiift-Studio/sanity-font-data-extractor/main/assets/extraction-pipeline.svg?v=1" alt="Extraction pipeline: a font file is dropped onto the GetFontData component, read into a Uint8Array via FileReader, parsed by fontkit.create(), and the resulting font object drives the summary cards, the ObjectInspector tree, copy-to-clipboard JSON, and (with 2+ fonts) the side-by-side compare view." width="100%">
+<img src="https://raw.githubusercontent.com/over-punch/sanity-font-data-extractor/main/assets/extraction-pipeline.svg?v=1" alt="Extraction pipeline: a font file is dropped onto the GetFontData component, read into a Uint8Array via FileReader, parsed by fontkit.create(), and the resulting font object drives the summary cards, the ObjectInspector tree, copy-to-clipboard JSON, and (with 2+ fonts) the side-by-side compare view." width="100%">
 
 ## Install
 
